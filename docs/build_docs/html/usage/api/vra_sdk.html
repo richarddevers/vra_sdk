@@ -1,0 +1,486 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>vra_sdk.vra_sdk &mdash; vra_sdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="vra_sdk.vra_utils" href="vra_utils.html" />
+    <link rel="prev" title="vra_sdk.vra_request" href="vra_request.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> vra_sdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compatibility.html">Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_list_data.html">Get/List data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../request.html">Perform request</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">Api</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="vra_authenticate.html">vra_sdk.vra_authenticate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vra_config.html">vra_sdk.vra_config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vra_decorator.html">vra_sdk.vra_decorator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vra_exceptions.html">vra_sdk.vra_exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vra_factory.html">vra_sdk.vra_factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vra_formatter.html">vra_sdk.vra_formatter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vra_request.html">vra_sdk.vra_request</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">vra_sdk.vra_sdk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vra_utils.html">vra_sdk.vra_utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vra_object.html">vra_sdk.models.vra_object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vra_payload_6.html">vra_sdk.models.vra_payload_6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vra_payload_7.html">vra_sdk.models.vra_payload_7</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">vra_sdk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../api.html">Api</a> &raquo;</li>
+        
+      <li>vra_sdk.vra_sdk</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/usage/api/vra_sdk.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-vra_sdk.vra_sdk">
+<span id="vra-sdk-vra-sdk"></span><h1>vra_sdk.vra_sdk<a class="headerlink" href="#module-vra_sdk.vra_sdk" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="vra_sdk.vra_sdk.VraSdk">
+<em class="property">class </em><code class="descclassname">vra_sdk.vra_sdk.</code><code class="descname">VraSdk</code><span class="sig-paren">(</span><em>authentication_object</em>, <em>business_group</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#vra_sdk.vra_sdk.VraSdk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Core class of the library.</p>
+<dl class="attribute">
+<dt id="vra_sdk.vra_sdk.VraSdk.config">
+<code class="descname">config</code><a class="headerlink" href="#vra_sdk.vra_sdk.VraSdk.config" title="Permalink to this definition">¶</a></dt>
+<dd><p>VraConfig object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="vra_config.html#vra_sdk.vra_authenticate.VraConfig" title="vra_sdk.vra_authenticate.VraConfig">VraConfig</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vra_sdk.vra_sdk.VraSdk.business_group">
+<code class="descname">business_group</code><a class="headerlink" href="#vra_sdk.vra_sdk.VraSdk.business_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>current business group name</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vra_sdk.vra_sdk.VraSdk.business_group_id">
+<code class="descname">business_group_id</code><a class="headerlink" href="#vra_sdk.vra_sdk.VraSdk.business_group_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>current business group id</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="vra_sdk.vra_sdk.VraSdk.catalog">
+<code class="descname">catalog</code><a class="headerlink" href="#vra_sdk.vra_sdk.VraSdk.catalog" title="Permalink to this definition">¶</a></dt>
+<dd><p>map of catalog item/resource action to related vRa id</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">dict</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">business_group</code></dt>
+<dd><p>property to get business group name</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="vra_sdk.vra_sdk.VraSdk.format_payload">
+<code class="descname">format_payload</code><span class="sig-paren">(</span><em>origin</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#vra_sdk.vra_sdk.VraSdk.format_payload" title="Permalink to this definition">¶</a></dt>
+<dd><p>Customized request kwargs before using it in the VraFactory class to create a payload object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>origin</strong> (<em>string</em>) – origin of the request. ‘catalog_item’ or ‘resource_action’</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">CatalogItem or ResourceAction object from one of the vra_payload_x modulme</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vra_sdk.vra_sdk.VraSdk.get_bg_id">
+<code class="descname">get_bg_id</code><span class="sig-paren">(</span><em>business_group</em>, <em>force_refresh=False</em><span class="sig-paren">)</span><a class="headerlink" href="#vra_sdk.vra_sdk.VraSdk.get_bg_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>get business group id against vRa infrastructure</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>business_group</strong> (<em>string</em>) – business group name</li>
+<li><strong>force_refresh</strong> (<em>bool</em><em>, </em><em>optional</em>) – Defaults to False. force the refresh of the business group id</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vra_sdk.vra_sdk.VraSdk.get_catalog">
+<code class="descname">get_catalog</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vra_sdk.vra_sdk.VraSdk.get_catalog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the catalog item list from the vRa infrastructure</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">map of catalog item to vRa id</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dict</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vra_sdk.vra_sdk.VraSdk.get_data">
+<code class="descname">get_data</code><span class="sig-paren">(</span><em>object_type</em>, <em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#vra_sdk.vra_sdk.VraSdk.get_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get data about one catalog resource in vRa. Get detailed info about your object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>object_type</strong> (<em>string</em>) – object type as described in the ‘business_models’ section of the configuration fiel</li>
+<li><strong>key</strong> (<em>string</em>) – field to filter on</li>
+<li><strong>value</strong> (<em>string</em>) – value of the field</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">business models object type as described in you configuration file</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">object</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vra_sdk.vra_sdk.VraSdk.get_raw_definition">
+<code class="descname">get_raw_definition</code><span class="sig-paren">(</span><em>key</em>, <em>value</em>, <em>resource_type</em><span class="sig-paren">)</span><a class="headerlink" href="#vra_sdk.vra_sdk.VraSdk.get_raw_definition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return dict used to create object inside the VraFactory</p>
+<p>This methods is a helper. You should use only at the beginning to help you build the object definitions needed for the factrory</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>key</strong> (<em>string</em>) – key to search data from</li>
+<li><strong>value</strong> (<em>string</em>) – value of the key</li>
+<li><strong>resource_type</strong> (<em>string</em>) – vRa resource type</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">dict of user friendly vRa formatted data</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dict</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vra_sdk.vra_sdk.VraSdk.list_data">
+<code class="descname">list_data</code><span class="sig-paren">(</span><em>object_type</em>, <em>key</em>, <em>value</em>, <em>limit=None</em>, <em>page=1</em>, <em>full=False</em>, <em>recursive=False</em><span class="sig-paren">)</span><a class="headerlink" href="#vra_sdk.vra_sdk.VraSdk.list_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get info about a list of object. Get less details than get_data(), but you still get the id</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>object_type</strong> (<em>string</em>) – object typre</li>
+<li><strong>key</strong> (<em>string</em>) – field to filter on</li>
+<li><strong>value</strong> (<em>string</em>) – value of the field to search on</li>
+<li><strong>limit</strong> (<em>int</em><em>, </em><em>optional</em>) – Defaults to None. maximum result</li>
+<li><strong>page</strong> (<em>int</em><em>, </em><em>optional</em>) – Defaults to 1. vRa result page to get data from</li>
+<li><strong>recursive</strong> (<em>bool</em><em>, </em><em>optional</em>) – Defaults to False. If True, will call itself recursively until there’s no more page to get from</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><code class="xref py py-exc docutils literal notranslate"><span class="pre">VraSdkMainException</span></code> – [description]</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">list of business models object type as described in you configuration file</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vra_sdk.vra_sdk.VraSdk.request_catalog_item">
+<code class="descname">request_catalog_item</code><span class="sig-paren">(</span><em>item_name</em>, <em>customization_func=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#vra_sdk.vra_sdk.VraSdk.request_catalog_item" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a ready to use Request object to request a catalog item</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>item_name</strong> (<em>string</em>) – catalog item name</li>
+<li><strong>customization_func</strong> (<em>function</em><em>, </em><em>optional</em>) – Defaults to None. payload customization function</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">object with the payload attribute well customized</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="vra_request.html#vra_sdk.vra_request.VraRequest" title="vra_sdk.vra_request.VraRequest">VraRequest</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vra_sdk.vra_sdk.VraSdk.request_resource_action">
+<code class="descname">request_resource_action</code><span class="sig-paren">(</span><em>action_name</em>, <em>resource_id</em>, <em>customization_func=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#vra_sdk.vra_sdk.VraSdk.request_resource_action" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a ready to use Request object to request a resource action</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>action_name</strong> (<em>string</em>) – resource action name</li>
+<li><strong>resource_id</strong> (<em>string</em>) – resource id to perform action on</li>
+<li><strong>customization_func</strong> (<em>function</em><em>, </em><em>optional</em>) – Defaults to None. payload customization function</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">object with the payload attribute well customized</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="vra_request.html#vra_sdk.vra_request.VraRequest" title="vra_sdk.vra_request.VraRequest">VraRequest</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="vra_utils.html" class="btn btn-neutral float-right" title="vra_sdk.vra_utils" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="vra_request.html" class="btn btn-neutral" title="vra_sdk.vra_request" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Richard Devers
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

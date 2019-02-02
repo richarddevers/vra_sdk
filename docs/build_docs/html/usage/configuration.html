@@ -1,0 +1,256 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Configuration &mdash; vra_sdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Authentication" href="authentication.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> vra_sdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compatibility.html">Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-file-fields">Configuration file fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#load-your-configuration">Load your configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get_list_data.html">Get/List data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="request.html">Perform request</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">Api</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">vra_sdk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Configuration</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/usage/configuration.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="configuration">
+<h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h1>
+<p>VraSdk configuration is done using json file.</p>
+<p>You can find a template for this configuration file the <a class="reference external" href="https://github.com/richarddevers/vra_sdk/blob/master/examples/config_template.json">data_examples</a> folder.</p>
+<p>The most minimalist example can be also found in the same place (minimal_config.json).
+However, with this one, you’ll only be able to request catalog item or resource action (since no business_models are defined, you won’t be able to get/list any data from your vRa infrastructure, see <a class="reference internal" href="get_list_data.html#my-reference-label"><span class="std std-ref">Get/List data</span></a>)</p>
+<div class="section" id="configuration-file-fields">
+<h2>Configuration file fields<a class="headerlink" href="#configuration-file-fields" title="Permalink to this headline">¶</a></h2>
+<p><strong>vcac_servers:</strong> Map of vcac_servers per environment</p>
+<p><strong>tenant:</strong> Map of tenant per environment</p>
+<p><strong>domain:</strong> Authorized windows domain</p>
+<p><strong>catalog_item:</strong>: Data structure used to defined catalog item custom data.</p>
+<p><strong>resource_ation:</strong>: Map to define custom resource action.</p>
+<p><strong>business_models:</strong> Used to defined path to vRa type definitions.</p>
+<p><strong>payload_default_version:</strong> Default version of the payload to create to interact with vRa (catalog item creation and resource action)</p>
+<p><strong>timeout:</strong> <a class="reference external" href="http://docs.python-requests.org/en/master/user/quickstart/#timeouts">Request timeout value</a></p>
+<p><strong>verify:</strong> <a class="reference external" href="http://docs.python-requests.org/en/master/_modules/requests/sessions/?highlight=verify">Request’s session verify value</a></p>
+<p><strong>max_vra_result_per_page:</strong> Max result per page for vRa request. Used for recursif call. On vRa 6 and 7, this limit is 5000.</p>
+<p><strong>not_in_data:</strong> Fields to be ommit in payload creation. These fields are still available when using payload customization method</p>
+</div>
+<div class="section" id="load-your-configuration">
+<h2>Load your configuration<a class="headerlink" href="#load-your-configuration" title="Permalink to this headline">¶</a></h2>
+<p>To load a configuration file in your script/app , just create a VraConfig object specifying his configuration file.</p>
+<p>Since this object is a singleton it will be create each time a module need it but it will use the same object your firstly create.</p>
+<p>If needed, you can reactive the __init__ of this class by settings the _sealed attribute to False</p>
+<p>Note that the path is relative to the python execution folder. Relative path are supported.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">vra_sdk.vra_config</span> <span class="kn">import</span> <span class="n">VraConfig</span>
+
+<span class="n">VraConfig</span><span class="p">(</span><span class="s1">&#39;your/path/to/config.json&#39;</span><span class="p">)</span>
+
+<span class="c1"># deactivating the singleton effect for next call</span>
+<span class="n">VraConfig</span><span class="p">()</span><span class="o">.</span><span class="n">_sealed</span><span class="o">=</span><span class="bp">False</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="authentication.html" class="btn btn-neutral float-right" title="Authentication" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="installation.html" class="btn btn-neutral" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Richard Devers
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

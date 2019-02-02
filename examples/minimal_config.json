@@ -1,0 +1,35 @@
+{
+    "vcac_servers": {
+      "my_env": "my_srv_env"
+    },
+    "tenant": {
+      "my_env": "my_tenant_env"
+    },
+    "domain": [
+      "foo.fuu.com"
+    ],
+    "catalog_item": {
+    },
+    "resource_action": {
+    },
+    "business_models": {
+    },
+    "payload_default_version": 7,
+    "timeout": 30,
+    "verify": false,
+    "max_vra_result_per_page": 5000,
+    "not_in_data": [
+      "tenant_name",
+      "catalog_item_id",
+      "catalog_item_name",
+      "business_group_name",
+      "business_group_id",
+      "payload_version",
+      "payload_type",
+      "payload_path",
+      "resource_action_name",
+      "resource_action_id",
+      "requested_for",
+      "resource_id"
+    ]
+  }

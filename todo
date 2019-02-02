@@ -1,0 +1,10 @@
+vra_factory.VraFactory
+    add to cleaned kwargs a renaming of the key if they are one of the builin python keyword
+
+vra_request.VraRequest.execute_sync
+    put in the configuration the delay
+    implement a max timeout(or max retry)
+
+For get/list data, add a way to permit the usage of a already defined filter
+
+Move initial vra_sdk catalog loading. Currently it is loaded everytime (which is performance consuming). If you don't need to perfrom any request (just getting data), this time is useless.

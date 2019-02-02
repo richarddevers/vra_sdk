@@ -1,0 +1,14 @@
+language: python
+addons:
+  sonarcloud:
+    organization: "richarddevers-github"
+    token:
+      secure: $SONAR_TOKEN 
+python:
+  - "3.6"
+install:
+  - pip install -r requirements-dev.txt
+  - pip install .
+script: 
+  - "pytest --cov-report xml --cov=vra_sdk tests/" 
+  - sonar-scanner

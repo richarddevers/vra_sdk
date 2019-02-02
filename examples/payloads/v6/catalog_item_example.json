@@ -1,0 +1,31 @@
+{
+    "@type": "CatalogItemRequest",
+    "catalogItemRef": {
+        "id": ""
+    },
+    "organization": {
+        "tenantRef": "",
+        "subtenantRef": ""
+    },
+    "requestedFor": "",
+    "state": "SUBMITTED",
+    "requestNumber": 0,
+    "requestData": {
+        "entries": [
+            {
+                "key": "requestedFor",
+                "value": {
+                    "type": "string",
+                    "value": ""
+                }
+            },
+            {
+                "key": "provider-MYPARAM",
+                "value": {
+                    "type": "string",
+                    "value": ""
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,265 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>vra_sdk.vra_factory &mdash; vra_sdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="vra_sdk.vra_formatter" href="vra_formatter.html" />
+    <link rel="prev" title="vra_sdk.vra_exceptions" href="vra_exceptions.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> vra_sdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compatibility.html">Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_list_data.html">Get/List data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../request.html">Perform request</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">Api</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="vra_authenticate.html">vra_sdk.vra_authenticate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vra_config.html">vra_sdk.vra_config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vra_decorator.html">vra_sdk.vra_decorator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vra_exceptions.html">vra_sdk.vra_exceptions</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">vra_sdk.vra_factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vra_formatter.html">vra_sdk.vra_formatter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vra_request.html">vra_sdk.vra_request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vra_sdk.html">vra_sdk.vra_sdk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vra_utils.html">vra_sdk.vra_utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vra_object.html">vra_sdk.models.vra_object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vra_payload_6.html">vra_sdk.models.vra_payload_6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vra_payload_7.html">vra_sdk.models.vra_payload_7</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">vra_sdk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../api.html">Api</a> &raquo;</li>
+        
+      <li>vra_sdk.vra_factory</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/usage/api/vra_factory.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-vra_sdk.vra_factory">
+<span id="vra-sdk-vra-factory"></span><h1>vra_sdk.vra_factory<a class="headerlink" href="#module-vra_sdk.vra_factory" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="vra_sdk.vra_factory.VraFactory">
+<em class="property">class </em><code class="descclassname">vra_sdk.vra_factory.</code><code class="descname">VraFactory</code><a class="headerlink" href="#vra_sdk.vra_factory.VraFactory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Factory to create specific object class</p>
+<dl class="staticmethod">
+<dt id="vra_sdk.vra_factory.VraFactory.factory">
+<em class="property">static </em><code class="descname">factory</code><span class="sig-paren">(</span><em>object_type</em>, <em>customization_func=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#vra_sdk.vra_factory.VraFactory.factory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Factory to create specific type object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>object_type</strong> (<em>string</em>) – Object type to create as defined in the business_models section of the configuration file</li>
+<li><strong>customization_func</strong> (<em>func</em><em>, </em><em>optional</em>) – Defaults to None. For ‘payload’ type only. Post customization payload processing function</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">object of the ‘object_type’ type specified in args</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">object</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="vra_formatter.html" class="btn btn-neutral float-right" title="vra_sdk.vra_formatter" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="vra_exceptions.html" class="btn btn-neutral" title="vra_sdk.vra_exceptions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Richard Devers
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

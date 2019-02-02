@@ -1,0 +1,13 @@
+{
+    "domain": "foo.fuu.com",
+    "vcac_servers": {
+        "PRD": "fake_prd_srv"
+    },
+    "tenant": {
+        "PRD": "fake_prd_tenant"
+    },
+    "payload_default_version": 7,
+    "catalog_item": {},
+    "resource_action": {},
+    "not_in_data": []
+}

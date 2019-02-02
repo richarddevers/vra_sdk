@@ -1,0 +1,369 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Get/List data &mdash; vra_sdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Perform request" href="request.html" />
+    <link rel="prev" title="Authentication" href="authentication.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> vra_sdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compatibility.html">Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authentication.html">Authentication</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Get/List data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#models-definitions">Models definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-data">Get data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#list-data">List data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#advanced-method">Advanced method</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="request.html">Perform request</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">Api</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">vra_sdk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Get/List data</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/usage/get_list_data.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="get-list-data">
+<span id="my-reference-label"></span><h1>Get/List data<a class="headerlink" href="#get-list-data" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="models-definitions">
+<h2>Models definitions<a class="headerlink" href="#models-definitions" title="Permalink to this headline">¶</a></h2>
+<p>To perform get/list operation against your vRa infrastructure, you must first create definitions of your vRa objects.
+vra_sdk will then use your definition inside his <a class="reference external" href="https://python-3-patterns-idioms-test.readthedocs.io/en/latest/Factory.html">factory</a></p>
+<p>Definitions must be declared in your config json file in the business_models sections.</p>
+<p>The key (in the below example ‘vm’) is the key you’ll use later while requesting data against your vRa infrastructure (Warning: the key ‘payload’is reserved)</p>
+<p><em>path</em> is the path to your business models definitions (using the python syntax folder.module.class)
+The path is relative to the python execution folder. Relative path are accepted.</p>
+<p>When <em>enforce_id</em> is set to true, during the creation of one object, every kwargs used must be part of the class signature (they can be less but not more)</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;business_models&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;vm&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;definitions.models.vra_vm.Vm&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;enforce_id&quot;</span><span class="p">:</span> <span class="kc">true</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>One example of a definition can be found in the <a class="reference external" href="https://github.com/richarddevers/vrasdk/blob/master/data_examples/definitions/vra_vm.py">data_examples folder</a></p>
+<p>Let analyze this example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">vra_sdk.models.vra_object</span> <span class="kn">import</span> <span class="n">VraBaseObject</span>
+</pre></div>
+</div>
+<p><em>VraBaseObject</em> is a very small class that will implement helpers for <a class="reference external" href="https://github.com/richarddevers/vrasdk/blob/master/vra_sdk/models/vra_object.py">to_dict and to_json method</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">RESOURCE_TYPE</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Virtual Machine&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>This array of string must contains the name of your resource type. This types will be used to create vra <a class="reference external" href="https://vdc-download.vmware.com/vmwb-repository/dcr-public/d2e4e058-df27-4ac1-a100-4dfd0ef774c0/cb3a080c-8e25-4492-9f1e-ff923ec1b98c/tips.html">Odata url filters</a>
+You can specify multiple type for one object class</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Vm</span><span class="p">(</span><span class="n">VraBaseObject</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw_data</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>Here i define my vRa object. The attribute <em>raw_data</em> is <strong>required</strong>. Every other attributes are free but must be returned by your vRa infrastructure.
+This definitions also serves you as documentation. If needed you can also implement specific method/mechanism</p>
+<p>To know which attributes must be set, you can use the <strong>vra_sdk.get_raw_definition</strong> method. This methods will return you a dict of prettify vRa data that you’ll just have to defined in your class attributes.</p>
+<p>eg:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+<span class="kn">from</span> <span class="nn">vra_sdk.vra_config</span> <span class="kn">import</span> <span class="n">VraConfig</span>
+<span class="kn">from</span> <span class="nn">vra_authenticate</span> <span class="kn">import</span> <span class="n">VraAuthenticate</span>
+<span class="kn">from</span> <span class="nn">vra_sdk.vra_sdk</span> <span class="kn">import</span> <span class="n">VraSdk</span>
+
+<span class="n">VraConfig</span><span class="p">(</span><span class="s1">&#39;my_config_file.json&#39;</span><span class="p">)</span>
+<span class="n">auth_obj</span> <span class="o">=</span> <span class="n">VraAuthenticate</span><span class="p">()</span><span class="o">.</span><span class="n">auth_login_password</span><span class="p">(</span><span class="s1">&#39;my_login&#39;</span><span class="p">,</span> <span class="s1">&#39;my_password&#39;</span><span class="p">,</span> <span class="s1">&#39;my_domain&#39;</span><span class="p">)</span>
+<span class="n">my_vra_sdk</span> <span class="o">=</span> <span class="n">VraSdk</span><span class="p">(</span><span class="n">auth_obj</span><span class="p">,</span> <span class="s1">&#39;my_business_group&#39;</span><span class="p">)</span>
+
+<span class="c1"># eg for VirtualMachine type</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">my_vra_sdk</span><span class="o">.</span><span class="n">get_raw_definition</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;my_vm_name&#39;</span><span class="p">,</span> <span class="s1">&#39;Virtual Machine&#39;</span><span class="p">))</span>
+
+<span class="o">&gt;&gt;</span><span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="s1">&#39;my_vm_name&#39;</span><span class="p">,</span>
+<span class="o">&gt;&gt;</span><span class="s1">&#39;id&#39;</span><span class="p">:</span><span class="s1">&#39;my_vm_id&#39;</span><span class="p">,</span>
+<span class="o">&gt;&gt;</span><span class="s1">&#39;attr1&#39;</span><span class="p">:[</span><span class="s1">&#39;aatr1&#39;</span><span class="p">],</span>
+<span class="o">&gt;&gt;</span><span class="s1">&#39;attr2&#39;</span><span class="p">:{</span><span class="s1">&#39;attr2&#39;</span><span class="p">:</span><span class="s1">&#39;value&#39;</span><span class="p">}</span>
+<span class="o">&gt;&gt;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>With that kind of very basic example, the class <em>Vm</em> in <em>definitions/models/vra_vm.py</em> (as defined in the configuration file above) should look like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="kn">from</span> <span class="nn">vra_sdk.models.vra_object</span> <span class="kn">import</span> <span class="n">VraBaseObject</span>
+
+<span class="n">RESOURCE_TYPE</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Virtual Machine&#39;</span><span class="p">]</span>
+<span class="k">class</span> <span class="nc">Vm</span><span class="p">(</span><span class="n">VraBaseObject</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw_data</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">attr1</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">attr2</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">raw_data</span><span class="o">=</span><span class="n">raw_data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">=</span><span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="o">=</span><span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">attr1</span><span class="o">=</span><span class="n">attr1</span> <span class="ow">or</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">attr2</span><span class="o">=</span><span class="n">attr2</span> <span class="ow">or</span> <span class="p">{}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-data">
+<h2>Get data<a class="headerlink" href="#get-data" title="Permalink to this headline">¶</a></h2>
+<p>Once your definitions set, you can finally get/list your data.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+<span class="kn">from</span> <span class="nn">vra_sdk.vra_config</span> <span class="kn">import</span> <span class="n">VraConfig</span>
+<span class="kn">from</span> <span class="nn">vra_authenticate</span> <span class="kn">import</span> <span class="n">VraAuthenticate</span>
+<span class="kn">from</span> <span class="nn">vra_sdk.vra_sdk</span> <span class="kn">import</span> <span class="n">VraSdk</span>
+
+<span class="n">VraConfig</span><span class="p">(</span><span class="s1">&#39;my_config_file.json&#39;</span><span class="p">)</span>
+<span class="n">auth_obj</span> <span class="o">=</span> <span class="n">VraAuthenticate</span><span class="p">()</span><span class="o">.</span><span class="n">auth_login_password</span><span class="p">(</span><span class="s1">&#39;my_login&#39;</span><span class="p">,</span> <span class="s1">&#39;my_password&#39;</span><span class="p">,</span> <span class="s1">&#39;my_domain&#39;</span><span class="p">)</span>
+<span class="n">my_vra_sdk</span> <span class="o">=</span> <span class="n">VraSdk</span><span class="p">(</span><span class="n">auth_obj</span><span class="p">,</span> <span class="s1">&#39;my_business_group&#39;</span><span class="p">)</span>
+
+<span class="c1"># Here i look for a &#39;vm&#39; type object (as set in my config file)</span>
+<span class="c1"># where &#39;name&#39; is equal to &#39;my_vm&#39;</span>
+<span class="n">vm_data</span> <span class="o">=</span> <span class="n">my_vra_sdk</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="s1">&#39;vm&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;vm_id&#39;</span><span class="p">)</span>
+
+<span class="c1"># Now i can acces to my object attribute defined in my definition</span>
+<span class="k">print</span><span class="p">(</span><span class="n">vm_data</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">vm_data</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+
+<span class="c1"># I can also acces to the vRa raw result</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">vm_data</span><span class="o">.</span><span class="n">raw_result</span><span class="p">)</span>
+
+<span class="c1"># I can use the VraObject method to either export a dict or a json string with all the data</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">vm_data</span><span class="o">.</span><span class="n">to_dict</span><span class="p">())</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">vm_data</span><span class="o">.</span><span class="n">to_json</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="list-data">
+<h2>List data<a class="headerlink" href="#list-data" title="Permalink to this headline">¶</a></h2>
+<p>You can use the list_data() function from the vra_sdk module if you expect to have more than one result</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">vm_list</span> <span class="o">=</span> <span class="n">my_vra_sdk</span><span class="o">.</span><span class="n">list_data</span><span class="p">(</span><span class="s1">&#39;vm&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">vm</span> <span class="ow">in</span> <span class="n">vm_list</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">vm</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Warning:</dt>
+<dd><p class="first">list_data() function allow to perform either a recursif/simple call and full data/light data at the same time.
+Combining recursif and full data can cause a server lack of performance</p>
+<p>The full option will add for each discovered item a supplementary call.</p>
+<dl class="docutils">
+<dt>So if your vRa infrastructure return 4000 objects, this will result in the following:</dt>
+<dd><ul class="first last simple">
+<li>1 call to list the 4000 object</li>
+<li>4000 call to get details on each</li>
+</ul>
+</dd>
+<dt>Another example, if vRa return 8000 objects:</dt>
+<dd><ul class="first last simple">
+<li>2 call to get the 8000 objects (vRa paginate result up to 5000 item per page max)</li>
+<li>8000 call to get the details</li>
+</ul>
+</dd>
+</dl>
+<p class="last">Use it wisely!</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="advanced-method">
+<h2>Advanced method<a class="headerlink" href="#advanced-method" title="Permalink to this headline">¶</a></h2>
+<p>get_data() and list_data() are just wrapper of the same function get_object() from the vra_request module.
+If needed, you can directly use it this way:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">vra_request</span> <span class="kn">import</span> <span class="n">VraRequest</span>
+<span class="n">VraRequest</span><span class="p">({})</span><span class="o">.</span><span class="n">get_object</span><span class="p">(</span><span class="n">object_type</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">limit</span><span class="p">,</span> <span class="n">page</span><span class="p">,</span> <span class="n">full</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="request.html" class="btn btn-neutral float-right" title="Perform request" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="authentication.html" class="btn btn-neutral" title="Authentication" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Richard Devers
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

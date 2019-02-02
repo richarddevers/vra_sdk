@@ -1,0 +1,35 @@
+{
+    "@type": "ResourceActionRequest",
+    "resourceRef": {
+        "id": ""
+    },
+    "resourceActionRef": {
+        "id": ""
+    },
+    "organization": {
+        "tenantRef": "",
+        "tenantLabel": "",
+        "subtenantRef": "",
+        "subtenantLabel": ""
+    },
+    "state": "SUBMITTED",
+    "requestNumber": 0,
+    "requestData": {
+        "entries": [
+            {
+                "key": "provider-MY_PARAM1",
+                "value": {
+                    "type": "decimal",
+                    "value": 10
+                }
+            },
+            {
+                "key": "provider-MY_PARAM2",
+                "value": {
+                    "type": "string",
+                    "value": ""
+                }
+            }
+        ]
+    }
+}

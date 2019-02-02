@@ -1,0 +1,8 @@
+{
+  "type": "com.vmware.vcac.catalog.domain.request.CatalogResourceRequest",
+  "resourceId": "",
+  "actionId": "",
+  "description": "",
+  "data": {
+  }
+}

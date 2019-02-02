@@ -1,0 +1,11 @@
+﻿pytest==4.0.2
+pytest-cov==2.6.0
+pytest-cover==3.0.0
+pytest-coverage==0.0
+pytest-mock==1.10.0
+pytest-watch==4.2.0
+Cerberus==1.2
+sphinxcontrib-napoleon==0.7
+sphinx-rtd-theme==0.4.2
+sphinxcontrib-websupport==1.1.0
+Sphinx==1.8.3

@@ -1,0 +1,346 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Perform request &mdash; vra_sdk  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Api" href="api.html" />
+    <link rel="prev" title="Get/List data" href="get_list_data.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> vra_sdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compatibility.html">Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get_list_data.html">Get/List data</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Perform request</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#request-a-catalog-item">Request a catalog item</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#request-a-resource-action">Request a resource action</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#payload-customization">Payload customization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#payload-version">Payload version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#payload-enforcement">Payload enforcement</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">Api</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">vra_sdk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Perform request</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/usage/request.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="perform-request">
+<h1>Perform request<a class="headerlink" href="#perform-request" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="request-a-catalog-item">
+<h2>Request a catalog item<a class="headerlink" href="#request-a-catalog-item" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+<span class="kn">from</span> <span class="nn">vra_sdk.vra_config</span> <span class="kn">import</span> <span class="n">vra_config</span>
+<span class="kn">from</span> <span class="nn">vra_authenticate</span> <span class="kn">import</span> <span class="n">VraAuthenticate</span>
+<span class="kn">from</span> <span class="nn">vra_sdk.vra_sdk</span> <span class="kn">import</span> <span class="n">VraSdk</span>
+
+<span class="n">VraConfig</span><span class="p">(</span><span class="s1">&#39;my_config_file.json&#39;</span><span class="p">)</span>
+<span class="n">auth_obj</span> <span class="o">=</span> <span class="n">VraAuthenticate</span><span class="p">(</span><span class="s1">&#39;my_environment&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">auth_login_password</span><span class="p">(</span><span class="s1">&#39;my_login&#39;</span><span class="p">,</span> <span class="s1">&#39;my_password&#39;</span><span class="p">,</span> <span class="s1">&#39;my_domain&#39;</span><span class="p">)</span>
+<span class="n">my_vra_sdk</span> <span class="o">=</span> <span class="n">VraSdk</span><span class="p">(</span><span class="n">auth_obj</span><span class="p">,</span> <span class="s1">&#39;my_business_group&#39;</span><span class="p">)</span>
+
+<span class="c1"># Defining my resquest parameters as defined in my asd</span>
+<span class="n">param</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;NbMachine&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;LeaseDays&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;Environment&quot;</span><span class="p">:</span> <span class="s2">&quot;DEV&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Size&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;DataDiskSize&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># i create a request object. At this time no request have been actually performed</span>
+<span class="n">create_vm_request</span> <span class="o">=</span> <span class="n">my_vra_sdk</span><span class="o">.</span><span class="n">request_catalog_item</span><span class="p">(</span><span class="s1">&#39;My Awesome centos&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">param</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">create_vm_request</span><span class="o">.</span><span class="n">payload</span><span class="o">.</span><span class="n">customized</span><span class="p">)</span>  <span class="c1"># have a look at the payload</span>
+
+<span class="c1"># i execute my request. The script will wait for either a fail or success of the request by polling the status url regularly</span>
+<span class="c1"># i could have execute it without hanging the terminal using execute_async()</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">create_vm_request</span><span class="o">.</span><span class="n">execute_sync</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="request-a-resource-action">
+<h2>Request a resource action<a class="headerlink" href="#request-a-resource-action" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+<span class="kn">from</span> <span class="nn">vra_sdk.vra_config</span> <span class="kn">import</span> <span class="n">vra_config</span>
+<span class="kn">from</span> <span class="nn">vra_authenticate</span> <span class="kn">import</span> <span class="n">VraAuthenticate</span>
+<span class="kn">from</span> <span class="nn">vra_sdk.vra_sdk</span> <span class="kn">import</span> <span class="n">VraSdk</span>
+
+<span class="n">VraConfig</span><span class="p">(</span><span class="s1">&#39;my_config_file.json&#39;</span><span class="p">)</span>
+<span class="n">auth_obj</span> <span class="o">=</span> <span class="n">VraAuthenticate</span><span class="p">(</span><span class="s1">&#39;my_environment&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">auth_login_password</span><span class="p">(</span><span class="s1">&#39;my_login&#39;</span><span class="p">,</span> <span class="s1">&#39;my_password&#39;</span><span class="p">,</span> <span class="s1">&#39;my_domain&#39;</span><span class="p">)</span>
+<span class="n">my_vra_sdk</span> <span class="o">=</span> <span class="n">VraSdk</span><span class="p">(</span><span class="n">auth_obj</span><span class="p">,</span> <span class="s1">&#39;my_business_group&#39;</span><span class="p">)</span>
+
+<span class="c1"># Resource action parameter creation</span>
+<span class="n">param</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;my_param_key&quot;</span><span class="p">:</span> <span class="s2">&quot;my_param_value&quot;</span><span class="p">}</span>
+<span class="n">req</span> <span class="o">=</span><span class="n">my_vra_sdk</span><span class="o">.</span><span class="n">request_resource_action</span><span class="p">(</span><span class="s2">&quot;My_resource_action_name&quot;</span><span class="p">,</span> <span class="n">vm_data</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="o">**</span><span class="n">param</span><span class="p">)</span>
+
+<span class="n">pprint</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">payload</span><span class="o">.</span><span class="n">customized</span><span class="p">)</span>  <span class="c1"># have a look at the payload</span>
+
+<span class="n">req</span><span class="o">.</span><span class="n">execute_async</span><span class="p">()</span>  <span class="c1"># execute the request without hanging</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">status_url</span><span class="p">)</span>  <span class="c1"># get the request status url</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="payload-customization">
+<h2>Payload customization<a class="headerlink" href="#payload-customization" title="Permalink to this headline">¶</a></h2>
+<p>If you need to perform specific customization to you payload, you can perform it creating a customization function as in the example below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_payload_customization</span><span class="p">(</span><span class="n">payload</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">payload</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="s1">&#39;business_group_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;business_group_id&#39;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">payload</span>
+
+
+<span class="c1"># I use payload customization for a catalog item request</span>
+<span class="n">create_vm_request</span> <span class="o">=</span> <span class="n">my_vra_sdk</span><span class="o">.</span><span class="n">request_catalog_item</span><span class="p">(</span><span class="s1">&#39;My Awesome centos&#39;</span><span class="p">,</span> <span class="n">my_payload_customization</span><span class="p">,</span> <span class="o">**</span><span class="n">param</span><span class="p">)</span>
+<span class="c1"># For a resource action request</span>
+<span class="n">resource_action_request</span> <span class="o">=</span><span class="n">my_vra_sdk</span><span class="o">.</span><span class="n">request_resource_action</span><span class="p">(</span><span class="s2">&quot;My_resource_action_name&quot;</span><span class="p">,</span> <span class="n">vm_data</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">my_payload_customization</span><span class="p">,</span> <span class="o">**</span><span class="n">param</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>From within the customization function, you can access interesting data from the kwargs:</p>
+<dl class="docutils">
+<dt>kwargs available for every request:</dt>
+<dd><ul class="first last simple">
+<li>tenant_name</li>
+<li>business_group_id</li>
+<li>business_group_name</li>
+<li>payload_type</li>
+<li>payload_version</li>
+<li>requested_for</li>
+</ul>
+</dd>
+<dt>kwargs available for catalog item request:</dt>
+<dd><ul class="first last simple">
+<li>catalog_item_id</li>
+<li>catalog_item_name</li>
+</ul>
+</dd>
+<dt>kwargs available for resource action request:</dt>
+<dd><ul class="first last simple">
+<li>resource_action_name</li>
+<li>resource_action_id</li>
+<li>resource_id</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="payload-version">
+<h2>Payload version<a class="headerlink" href="#payload-version" title="Permalink to this headline">¶</a></h2>
+<p>For every request, if you add the key ‘payload_version’:6 to the parameter dict, the request is generated using vRa6 payload object</p>
+<p>Doing so, the ‘provider-‘ prefix is added automatically (or not if it’s already set)</p>
+<p>Request execution url/method is also custom to each version.</p>
+</div>
+<div class="section" id="payload-enforcement">
+<h2>Payload enforcement<a class="headerlink" href="#payload-enforcement" title="Permalink to this headline">¶</a></h2>
+<p>You can defined specific payload json file for each catalog item/resource action request.</p>
+<p>You can defined it using the configuration file</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>  <span class="nt">&quot;catalog_item&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;My catalog item name&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;payload&quot;</span><span class="p">:</span> <span class="s2">&quot;v7/vm/catalog_item_example.json&quot;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="s2">&quot;resource_action&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;My resource action name&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;payload&quot;</span><span class="p">:</span> <span class="s2">&quot;v7/vm/resource_action_example.json&quot;</span>
+            <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Payload path are relative to your python execution folder. Relative path are authorized.</p>
+<p>Parameter specified during request creation will be added to the data/item parts of the payload.</p>
+<p>Payload customization function are compatible.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="api.html" class="btn btn-neutral float-right" title="Api" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="get_list_data.html" class="btn btn-neutral" title="Get/List data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Richard Devers
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+{
+  "vcac_servers": {
+    "DEV": "",
+    "UAT": "",
+    "PRD": ""
+  },
+  "tenant": {
+    "DEV": "",
+    "UAT": "",
+    "PRD": ""
+  },
+  "domain": [
+    "foo.fuu.com"
+  ],
+  "catalog_item": {
+    "My catalog item name": {
+      "payload": "v7/vm/catalog_item_example.json"
+    }
+  },
+  "resource_action": {
+    "My resource action name": {
+      "payload": "v7/vm/resource_action_example.json"
+    }
+  },
+  "business_models": {
+    "vm": {
+      "path": "definitions.models.vra_vm.Vm",
+      "enforce_id": true
+    }
+  },
+  "payload_default_version": 7,
+  "timeout": 30,
+  "verify": false,
+  "max_vra_result_per_page": 5000,
+  "not_in_data": [
+    "tenant_name",
+    "catalog_item_id",
+    "catalog_item_name",
+    "business_group_name",
+    "business_group_id",
+    "payload_version",
+    "payload_type",
+    "payload_path",
+    "resource_action_name",
+    "resource_action_id",
+    "requested_for",
+    "resource_id"
+  ]
+}
