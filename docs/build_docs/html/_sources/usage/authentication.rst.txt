@@ -10,7 +10,7 @@ Authentication
     VraConfig('my_config_file.json')
 
     # First i must create an VraAuthenticate object specifying an environment
-    auth_obj = VraAuthenticate(environment='UAT')
+    auth_obj = VraAuthenticate('UAT')
     # If i change my environment, the tenant and vcac_server attribute will be reloaded from the configuration file
 
     # Then i perform the actual authentication using login/password/domain...

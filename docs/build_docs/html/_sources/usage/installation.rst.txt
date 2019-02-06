@@ -5,4 +5,4 @@ To install this lib, easy as py
 
 .. code-block:: python
 
-   pip install vra_sdk
+   pip install --user vra_sdk

@@ -67,7 +67,7 @@ eg:
     from vra_sdk.vra_sdk import VraSdk
 
     VraConfig('my_config_file.json')
-    auth_obj = VraAuthenticate().auth_login_password('my_login', 'my_password', 'my_domain')
+    auth_obj = VraAuthenticate('UAT').auth_login_password('my_login', 'my_password', 'my_domain')
     my_vra_sdk = VraSdk(auth_obj, 'my_business_group')
 
     # eg for VirtualMachine type
