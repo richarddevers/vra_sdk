@@ -63,11 +63,11 @@ eg:
 
     from pprint import pprint
     from vra_sdk.vra_config import VraConfig
-    from vra_authenticate import VraAuthenticate
+    from vra_sdk.vra_authenticate import VraAuthenticate
     from vra_sdk.vra_sdk import VraSdk
 
     VraConfig('my_config_file.json')
-    auth_obj = VraAuthenticate().auth_login_password('my_login', 'my_password', 'my_domain')
+    auth_obj = VraAuthenticate('UAT').auth_login_password('my_login', 'my_password', 'my_domain')
     my_vra_sdk = VraSdk(auth_obj, 'my_business_group')
 
     # eg for VirtualMachine type
@@ -105,11 +105,11 @@ Once your definitions set, you can finally get/list your data.
 
     from pprint import pprint
     from vra_sdk.vra_config import VraConfig
-    from vra_authenticate import VraAuthenticate
+    from vra_sdk.vra_authenticate import VraAuthenticate
     from vra_sdk.vra_sdk import VraSdk
 
     VraConfig('my_config_file.json')
-    auth_obj = VraAuthenticate().auth_login_password('my_login', 'my_password', 'my_domain')
+    auth_obj = VraAuthenticate('UAT').auth_login_password('my_login', 'my_password', 'my_domain')
     my_vra_sdk = VraSdk(auth_obj, 'my_business_group')
 
     # Here i look for a 'vm' type object (as set in my config file)
@@ -139,7 +139,7 @@ You can use the list_data() function from the vra_sdk module if you expect to ha
 
 Warning:
     list_data() function allow to perform either a recursif/simple call and full data/light data at the same time.
-    Combining recursif and full data can cause a server lack of performance
+    Combining recursif and full data can cause a sever lack of performance
 
     The full option will add for each discovered item a supplementary call.
 
@@ -162,5 +162,5 @@ If needed, you can directly use it this way:
 
 .. code-block:: python
 
-    from vra_request import VraRequest
+    from vra_sdk.vra_request import VraRequest
     VraRequest({}).get_object(object_type, key, value, limit, page, full)

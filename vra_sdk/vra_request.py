@@ -187,7 +187,6 @@ class VraRequest():
 
                 res = req.json()
                 result.append(res)
-                print(result)
             return result
         else:
             return res['content'] if 'content' in res else []
