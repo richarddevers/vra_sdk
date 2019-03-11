@@ -29,16 +29,6 @@ class TestVraAuthenticate(SetupTest):
         self.assertIsNone(authenticate.token)
         self.assertIsNone(authenticate.domain)
 
-    @patch("vra_sdk.vra_authenticate.requests.Session")
-    @patch("vra_sdk.vra_authenticate.urllib3.disable_warnings")
-    @patch("vra_sdk.vra_authenticate.VraConfig")
-    def test_auth_login_password_raises_no_domain(self, mock_config, mock_urllib3, mock_session):
-        authenticate = VraAuthenticate('')
-        mock_config.return_value.config = {'domain': ["fake_domain"]}
-
-        with self.assertRaises(VraSdkConfigException):
-            authenticate.auth_login_password("", "", "")
-
     @patch("vra_sdk.vra_authenticate.VraAuthenticate.get_token")
     @patch("vra_sdk.vra_authenticate.VraConfig")
     def test_auth_login_password(self, mock_config, mock_token):
@@ -59,16 +49,6 @@ class TestVraAuthenticate(SetupTest):
         self.assertEqual(authenticate.token, fake_token)
         mock_token.assert_called_once()
         mock_token.assert_called_with(fake_login, fake_pwd)
-
-    @patch("vra_sdk.vra_authenticate.requests.Session")
-    @patch("vra_sdk.vra_authenticate.urllib3.disable_warnings")
-    @patch("vra_sdk.vra_authenticate.VraConfig")
-    def test_auth_login_token_raises_no_domain(self, mock_config, mock_urllib3, mock_session):
-        authenticate = VraAuthenticate('')
-        mock_config.return_value.config = {'domain': ["fake_domain"]}
-
-        with self.assertRaises(VraSdkConfigException):
-            authenticate.auth_login_token("", "", "")
 
     @patch("vra_sdk.vra_authenticate.VraConfig")
     def test_auth_login_token_(self, mock_config):
@@ -125,5 +105,4 @@ class TestVraAuthenticate(SetupTest):
 
         authenticate.get_token(fake_login, fake_pwd)
 
-        mock_config.return_value.session.post.assert_called_once_with('https://fake_srv/identity/api/tokens', data='{"username": "fake_login", "password": "fake_pwd", "tenant": ""}', headers={
-            'Content-Type': 'application/json', 'Accept': 'application/json'}, timeout=12, verify=False)
+        mock_config.return_value.session.post.assert_called_once_with('https://fake_srv/identity/api/tokens', headers={'Content-Type': 'application/json', 'Accept': 'application/json'}, json={'username': 'fake_login', 'password': 'fake_pwd', 'tenant': ''}, timeout=12, verify=False)

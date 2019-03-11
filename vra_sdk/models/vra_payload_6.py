@@ -5,7 +5,7 @@ from vra_sdk.vra_exceptions import VraSdkRequestException, VraSdkPayloadExceptio
 from vra_sdk.vra_utils import load_payload_file
 import requests
 import json
-
+from copy import deepcopy
 
 class BasePayload():
     """Base class for CatalogItem and ResourceAction
@@ -41,7 +41,10 @@ class BasePayload():
                 provider_k = k
                 if not k.startswith('provider-'):
                     provider_k = 'provider-' + provider_k
-                if isinstance(v, str):
+                if isinstance(v, bool):
+                    payload['requestData']['entries'].append(
+                        {"key": provider_k, "value": {"type": "boolean", "value": v}})
+                elif isinstance(v, str):
                     payload['requestData']['entries'].append(
                         {"key": provider_k, "value": {"type": "string", "value": v}})
                 elif isinstance(v, (int, float)):
@@ -80,7 +83,7 @@ class CatalogItem(BasePayload):
         else:
             self.base = load_payload_file(kwargs['payload_path'])
 
-        self.customized = self.customize_payload(self.base, **kwargs)
+        self.customized = self.customize_payload(deepcopy(self.base), **kwargs)
         if customization_func:
             self.customized = customization_func(self.customized, **kwargs)
 
@@ -141,7 +144,7 @@ class ResourceAction(BasePayload):
         else:
             self.base = load_payload_file(kwargs['payload_path'])
 
-        self.customized = self.customize_payload(self.base, **kwargs)
+        self.customized = self.customize_payload(deepcopy(self.base), **kwargs)
         if customization_func:
             self.customized = customization_func(self.customized, **kwargs)
 

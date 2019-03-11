@@ -9,9 +9,6 @@
     "UAT": "",
     "PRD": ""
   },
-  "domain": [
-    "foo.fuu.com"
-  ],
   "catalog_item": {
     "My catalog item name": {
       "payload": "v7/vm/catalog_item_example.json"
@@ -24,8 +21,7 @@
   },
   "business_models": {
     "vm": {
-      "path": "definitions.models.vra_vm.Vm",
-      "enforce_id": true
+      "path": "definitions.models.vra_vm.Vm"
     }
   },
   "payload_default_version": 7,

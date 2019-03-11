@@ -8,3 +8,5 @@ vra_request.VraRequest.execute_sync
 For get/list data, add a way to permit the usage of a already defined filter
 
 Move initial vra_sdk catalog loading. Currently it is loaded everytime (which is performance consuming). If you don't need to perfrom any request (just getting data), this time is useless.
+
+add payload on fly loading for vra6 payload (...or not...)

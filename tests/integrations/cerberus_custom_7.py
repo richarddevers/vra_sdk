@@ -14,6 +14,7 @@ class CerberusCustomValidator7:
             'catalogItemId': {'type': 'string', 'required': True},
             'businessGroupId': {'type': 'string', 'required': True},
             'description': {'type': 'string'},
+            'reasons': {'type': 'string'},
             'requestedFor': {'type': 'string'},
             'data': {
                 'type': 'dict',

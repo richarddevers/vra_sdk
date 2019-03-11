@@ -3,7 +3,7 @@ from setuptools.command.install import install
 
 
 setup(name='vra_sdk',
-      version="1.0.1",
+      version="1.1.0",
       description='vra_sdk',
       url='https://github.com/richarddevers/vra_sdk',
       author='Richard DEVERS',

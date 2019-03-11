@@ -89,6 +89,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="definition.html">Definitions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="get_list_data.html">Get/List data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="request.html">Perform request</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">Api</a></li>
@@ -162,12 +163,11 @@
 <p>VraSdk configuration is done using json file.</p>
 <p>You can find a template for this configuration file the <a class="reference external" href="https://github.com/richarddevers/vra_sdk/blob/master/examples/config_template.json">data_examples</a> folder.</p>
 <p>The most minimalist example can be also found in the same place (minimal_config.json).
-However, with this one, you’ll only be able to request catalog item or resource action (since no business_models are defined, you won’t be able to get/list any data from your vRa infrastructure, see <a class="reference internal" href="get_list_data.html#my-reference-label"><span class="std std-ref">Get/List data</span></a>)</p>
+However, with this one, you’ll only be able to request catalog item or resource action (since no business_models are defined, you won’t be able to get/list any data from your vRa infrastructurel)</p>
 <div class="section" id="configuration-file-fields">
 <h2>Configuration file fields<a class="headerlink" href="#configuration-file-fields" title="Permalink to this headline">¶</a></h2>
 <p><strong>vcac_servers:</strong> Map of vcac_servers per environment</p>
 <p><strong>tenant:</strong> Map of tenant per environment</p>
-<p><strong>domain:</strong> Authorized windows domain</p>
 <p><strong>catalog_item:</strong>: Data structure used to defined catalog item custom data.</p>
 <p><strong>resource_ation:</strong>: Map to define custom resource action.</p>
 <p><strong>business_models:</strong> Used to defined path to vRa type definitions.</p>

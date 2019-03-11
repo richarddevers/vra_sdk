@@ -85,6 +85,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../definition.html">Definitions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../get_list_data.html">Get/List data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../request.html">Perform request</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">Api</a><ul class="current">
@@ -343,6 +344,30 @@ Will update self.token accordingly</p>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#vra_sdk.vra_authenticate.VraAuthenticate" title="vra_sdk.vra_authenticate.VraAuthenticate">VraAuthenticate</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vra_sdk.vra_authenticate.VraAuthenticate.delete_token">
+<code class="descname">delete_token</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vra_sdk.vra_authenticate.VraAuthenticate.delete_token" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete vRa token</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first simple">
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">VraSdkRequestException</span></code> – [description]</li>
+<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">VraSdkAuthenticateException</span></code> – [description]</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">True if the token has been succesfully deleted, False there’s already no token</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">bolean</p>
 </td>
 </tr>
 </tbody>

@@ -25,7 +25,6 @@ class VraFactory(object):
         """
 
         config = VraConfig().config_file
-        enforce_id = None
 
         if object_type == 'payload':
             if all(k in kwargs for k in ("payload_version", "payload_type")):
@@ -41,7 +40,6 @@ class VraFactory(object):
             if not object_path:
                 raise VraSdkFactoryException(
                     f"Error retrieving module_class for {object_type} object type.")
-            enforce_id = config['business_models'][object_type].get('enforce_id')
         else:
             raise VraSdkConfigException(
                 'Error building vraObject, unknown type')
@@ -50,14 +48,13 @@ class VraFactory(object):
         id_cards = inspect.signature(object_class).parameters
         cleaned_kwargs = clean_kwargs_key(**kwargs)
 
-        if enforce_id:
+        if object_type != 'payload':
             for kwarg in cleaned_kwargs:
                 if kwarg not in id_cards:
                     raise VraSdkConfigException(
                         f"Error creating vraObject {object_type}, {kwarg} not authorized by the id card of {object_path}")
 
         if object_type == 'payload':
-            to_return = object_class(customization_func, **cleaned_kwargs)
-        else:
-            to_return = object_class(**cleaned_kwargs)
-        return to_return
+            return object_class(customization_func, **cleaned_kwargs)
+            
+        return object_class(**cleaned_kwargs)

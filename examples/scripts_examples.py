@@ -22,7 +22,7 @@ my_client = VraSdk(auth, my_business_group)
 # get data on one vm from name
 vm_name = 'my_vm_name'
 vm_data = my_client.get_data('vm', 'name', vm_name)[0]
-print(vm_data.name)
+print(vm_data.id)
 ######
 
 # get data on one vm from id

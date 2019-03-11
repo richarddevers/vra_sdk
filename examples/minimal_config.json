@@ -5,9 +5,6 @@
     "tenant": {
       "my_env": "my_tenant_env"
     },
-    "domain": [
-      "foo.fuu.com"
-    ],
     "catalog_item": {
     },
     "resource_action": {

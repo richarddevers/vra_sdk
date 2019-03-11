@@ -28,7 +28,7 @@ class TestIntegration7(SetupTest):
             'fake_login', 'fake_password', 'foo.fuu.com')
         sdk = VraSdk(auth, 'fake_bg')
 
-        data = {"provider-fake_data1": "fake_value1", "fake_data2": 122}
+        data = {"fake_data1": "fake_value1", "fake_data2": 122}
 
         fake_item_request = sdk.request_catalog_item(
             "fake_catalog_item", **data)

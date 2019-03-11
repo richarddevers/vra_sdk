@@ -5,7 +5,6 @@ import requests
 from vra_sdk.vra_config import VraConfig
 from vra_sdk.vra_exceptions import VraSdkConfigException, VraSdkRequestException, VraSdkAuthenticateException
 
-
 class VraAuthenticate():
     """Provide authentication mechanism against vRa and context switching support
 
@@ -71,9 +70,6 @@ class VraAuthenticate():
             VraAuthenticate: self
         """
 
-        if domain not in self.config.config_file['domain']:
-            raise VraSdkConfigException(f"Domain error. Domain value can be: {str(self.config.config_file['domain'])}")
-
         self.login = login
         self.domain = domain
         self.requestedFor = self.login + "@" + self.domain
@@ -98,10 +94,6 @@ class VraAuthenticate():
         Returns:
             VraAuthenticate: self
         """
-
-
-        if domain not in self.config.config_file['domain']:
-            raise VraSdkConfigException(f"Domain error. Domain value can be: {str(self.config.config_file['domain'])}")
 
         self.login = login
         self.domain = domain
@@ -128,14 +120,46 @@ class VraAuthenticate():
 
         headers = {'Content-Type': 'application/json',
                    'Accept': 'application/json'}
-        payload = {'username': login,
-                   'password': password, 'tenant': self.tenant}
+        payload = {
+            'username': login,
+            'password': password,
+            'tenant': self.tenant
+        }
+        
         try:
             req = self.config.session.post(f"https://{self.config.vcac_server}/identity/api/tokens",
-                                           data=json.dumps(payload),
-                                           verify=self.config.verify, headers=headers, timeout=self.config.timeout)
+                                           json=payload,
+                                           verify=self.config.verify,
+                                           headers=headers,
+                                           timeout=self.config.timeout)
             req.raise_for_status()
             return json.loads(req.text)['id']
+        except requests.exceptions.RequestException as e:
+            raise VraSdkRequestException(f"Error during request to get vRa token: {e}")
+        except Exception as e:
+            raise VraSdkAuthenticateException(f"Unmanaged error during token retrieving: {e}")
+
+    def delete_token(self):
+        """Delete vRa token
+        
+        Raises:
+            VraSdkRequestException: [description]
+            VraSdkAuthenticateException: [description]
+        
+        Returns:
+            bolean: True if the token has been succesfully deleted, False there's already no token
+        """
+
+        try:
+            if not self.token: return False
+            req = self.config.session.delete(f"https://{self.config.vcac_server}/identity/api/tokens/{self.token}",
+                                           verify=self.config.verify,
+                                           headers=self.config.session.headers,
+                                           timeout=self.config.timeout)
+            req.raise_for_status()
+            self.token = None
+            self.config.session.headers.update({'content-type':'application/json', 'Accept':'application/json', 'Authorization':''})
+            return True
         except requests.exceptions.RequestException as e:
             raise VraSdkRequestException(f"Error during request to get vRa token: {e}")
         except Exception as e:

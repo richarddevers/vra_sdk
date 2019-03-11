@@ -11,6 +11,7 @@ Welcome to vra_sdk's documentation!
    usage/installation
    usage/configuration
    usage/authentication
+   usage/definition
    usage/get_list_data
    usage/request
    usage/api

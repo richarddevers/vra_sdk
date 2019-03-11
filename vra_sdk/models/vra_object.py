@@ -20,7 +20,10 @@ class VraBaseObject:
             result[k] = getattr(self, k)
 
         if not raw_data:
-            result.pop('raw_data')
+            try:
+                result.pop('raw_data')
+            except KeyError:
+                pass
         return result
 
     def to_json(self, raw_data=False):

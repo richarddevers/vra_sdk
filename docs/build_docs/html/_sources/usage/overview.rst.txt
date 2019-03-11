@@ -13,7 +13,8 @@ It provides the following features:
 - Request a resource action
 - Easyly handle any vRa resource type (even dynamic type)
 
-Even if as a library, you can use whatever functionallity exposed, the 4 most important are the following
+Even if as a library, you can use whatever functionallity exposed, the 4 most important are the following:
+
 - vra_sdk.get_data
 - vra_sdk.list_data
 - vra_sdk.request_catalog_item

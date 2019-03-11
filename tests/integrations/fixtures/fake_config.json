@@ -9,5 +9,18 @@
     "payload_default_version": 7,
     "catalog_item": {},
     "resource_action": {},
-    "not_in_data": []
+    "not_in_data": [
+        "tenant_name",
+        "catalog_item_id",
+        "catalog_item_name",
+        "business_group_name",
+        "business_group_id",
+        "payload_version",
+        "payload_type",
+        "payload_path",
+        "resource_action_name",
+        "resource_action_id",
+        "requested_for",
+        "resource_id"
+      ]
 }
